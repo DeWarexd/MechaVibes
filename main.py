@@ -168,8 +168,7 @@ def on_press(key):
 def on_release(key):
     if key in pressedKeys:
         pressedKeys.remove(key)
-    if key == Key.esc:
-        return False
+    # i did sum fix here
 
 def on_click(x, y, button, pressed):
     if pressed and mouseSounds:
