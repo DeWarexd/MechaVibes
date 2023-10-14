@@ -2,6 +2,8 @@
 
 a **Lightweight** app that allows you to get **mechanical keyboard sound** everytime you press a key.
 
+**Join Discord for more Soundpacks** ![Discord](https://discord.gg/FQkRFbzY6E)
+
 ![mechvibes app](https://cdn.discordapp.com/attachments/1124338967001710684/1162080947261407302/image.png?ex=653aa338&is=65282e38&hm=db17792006bd020a8be1ef1c5fe3f37b6c818e9b824e6ae776c774439b2c0c6a&)
 
 ## 🔧 Installation
