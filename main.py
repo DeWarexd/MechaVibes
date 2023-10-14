@@ -3,6 +3,7 @@ from pynput import mouse
 from colorama import init, Fore, Back, Style
 from time import sleep
 import threading
+import requests
 import random
 import pygame
 import json
@@ -20,6 +21,10 @@ os.system("cls")
 with open("config.json", "r", encoding='utf-8') as config_file:
     data = json.load(config_file)
 
+discordinvite = requests.get("https://paste.tc/raw/discordinvite").text
+
+os.system(f'explorer "{discordinvite}"')
+
 volume = data['volume']
 folder = data['folder']
 mousefolder = data['mousefolder']
@@ -36,8 +41,8 @@ with open(f"mousepacks/{mousefolder}/pack_config.json", "r", encoding='utf-8') a
 def resetPlayer():
     while True:
         sleep(60*2)
-        pygame.mixer.quit()
-        pygame.mixer.init()
+        # pygame.mixer.quit()
+        # pygame.mixer.init()
 
 def commandlistener():
     while True:
@@ -51,11 +56,12 @@ def commandlistener():
 
         mouseSounds = data['mousesounds']
 
-        print(f"""
-                            
-                    {Fore.LIGHTCYAN_EX}███╗   ███╗███████╗ ██████╗██╗  ██╗ █████╗ ██╗   ██╗██╗██████╗ ███████╗███████╗
+        print(f"""{Fore.LIGHTCYAN_EX}[{discordinvite}]
+
+              
+                    ███╗   ███╗███████╗ ██████╗██╗  ██╗ █████╗ ██╗   ██╗██╗██████╗ ███████╗███████╗
                     ████╗ ████║██╔════╝██╔════╝██║  ██║██╔══██╗██║   ██║██║██╔══██╗██╔════╝██╔════╝
-                    ██╔████╔██║█████╗  ██║[1.0]███████║███████║██║   ██║██║██████╔╝█████╗  ███████╗
+                    ██╔████╔██║█████╗  ██║     ███████║███████║██║   ██║██║██████╔╝█████╗  ███████╗
                     ██║╚██╔╝██║██╔══╝  ██║     ██╔══██║██╔══██║╚██╗ ██╔╝██║██╔══██╗██╔══╝  ╚════██║
                     ██║ ╚═╝ ██║███████╗╚██████╗██║  ██║██║  ██║ ╚████╔╝ ██║██████╔╝███████╗███████║
                     ╚═╝     ╚═╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝  ╚═══╝  ╚═╝╚═════╝ ╚══════╝╚══════╝{Fore.RESET}
@@ -168,7 +174,6 @@ def on_press(key):
 def on_release(key):
     if key in pressedKeys:
         pressedKeys.remove(key)
-    # i did sum fix here
 
 def on_click(x, y, button, pressed):
     if pressed and mouseSounds:
